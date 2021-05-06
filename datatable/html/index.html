@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="author" content="CDLCS"/>
+        <title>Ejemplo de Datatable JQuery</title>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.6.0/css/buttons.bootstrap4.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
+
+        <link rel="stylesheet" href="css/estilo-compresion.min.css"> 
+        <link rel="stylesheet" href="css/especial.css"> 
+    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
+        <script>
+            
+$(document).ready(function() {
+    $('#example').DataTable( {
+            responsive: true,
+             "language": {
+            "lengthMenu": "Mostrando _MENU_ registros por página",
+            "zeroRecords": "No se encontraron resultados",
+            "info": "Mostrando página _PAGE_ de _PAGES_",
+            "infoEmpty": "No hay registros disponibles",
+            "infoFiltered": "(filtrado de _MAX_ registros totales)",
+            "sSearch": "Buscar",
+            "sLoadingRecords": "Cargando...",
+            "oPaginate": {
+                    "sFirst":    "Primero",
+                    "sLast":     "Último",
+                    "sNext":     "Siguiente",
+                    "sPrevious": "Anterior"
+                }
+        },
+        ajax :{ /* POST o GET */
+            url:"datos.json" // ruta para un servicio que retorne un JSON
+        },
+        columns: [
+            { data: "Nombre" },
+            { data: "Titulo" },
+            { data: "Director" },
+            { data: "Fecha" },
+            { data: "Documento",
+              "render": function(data, type, row, meta){
+                if(type === 'display'){
+                    data = '<a href="' + data + '" target="_blank"><img src="img/pdf.png" height="50px" weight="40px"/></a>';
+                }
+                return data;
+                }
+            }
+        ]
+    } );
+} );
+     </script>
+</head>
+
+</head>
+<body>
+    <div class="pace  pace-inactive">
+        <div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+            <div class="pace-progress-inner"></div>
+        </div>
+        <div class="pace-activity"></div>
+    </div>
+    
+    <img src="img/Fisedu_logo_f.jpg" class="img-fluid mx-auto d-block  " alt="Física Educativa">
+
+    <!-- Migajas -->
+    <div class="container u-noPaddingContainer">
+        <nav >
+        <ol class="breadcrumb">
+            <div id="breadcrumbnav">
+                <span class="container u-noPaddingContainer"></span> 
+                <a href="tesismaestria.html" title="Tesis Maestria">Maestría</a> 
+                <span class="container u-noPaddingContainer"></span>
+                <a href="tesisdoctorado.html" title="Tesis Doctorado">Doctorado</a>     
+                <span class="container u-noPaddingContainer"></span>
+                <a href="https://www.cicata.ipn.mx/oferta-educativa/fisica-educativa/investigación/" title="Regresar" >Regresar</a>
+            </div>
+            </ol>
+        </nav>
+    </div>
+
+    <main id="dataMain">
+        <div id="titulo">
+            <h1>Tesis de Maestría</h1>
+        </div>
+        <div id="tableContainer">
+        <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Título</th>
+                    <th>Director(es)</th>
+                    <th>Fecha</th>
+                    <th>Documento</th>
+                </tr>
+            </thead>
+        </table>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,34 @@
+
+nav{
+    margin:10px;  
+    background-color: #800040; 
+    height: 45px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+}
+
+nav a{
+    color:#FFF;  
+}
+
+nav a:hover{
+    color:#FFFF00; 
+};
+
+nav a:active{
+    color:#CCC;  
+}
+        
+#dataMain #titulo{
+  margin:30px 10px;  
+}
+
+#titulo h1{
+    text-align: center  
+}
+
+#dataMain #tableContainer{
+  margin: 0 auto;  
+  width: 80%;  
+}
