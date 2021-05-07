@@ -65,3 +65,15 @@ function multiplicationTable(request,response) {
 }
 
 console.log('Web Server On ...');
+
+
+//Express - rutas GET - POST
+//motor de vistas - EJS - motor de plantillas HTML 
+//Api REST - MySQL - GET POST DELETE PUT
+// Sequelize - ORM - Motor mapeo objeto - relacional - SQL - Objetos
+// JPA - Hibernate - Ibatiz - Consultas a nivel de objetos
+// Django - modelo
+// M V C - Patron de diseño arquitectónico que estructura una aplicación
+// Modelo - Lógica de negocio (BD) 
+// Vista - Rutinas que generan HTML - EJS
+// Contralor - Gestiona peticiones y respuestas
