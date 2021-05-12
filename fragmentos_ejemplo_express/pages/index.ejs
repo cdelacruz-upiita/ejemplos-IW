@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<link href="../../css/especial.css" rel="stylesheet">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>	
+	<title><%= title%></title>
+</head>
+<body>
+	<%- include ('../partials/header')%>
+    <!-- Contenedor principal de los formularios -->
+    <div class="container">
+    	<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-login">
+					<div class="panel-heading">
+						<div class="row">
+                            <!-- link para iniciar sesión -->
+							<div class="col-xs-6">
+								<a href="#" class="active" id="login-form-link">Iniciar sesión</a>
+							</div>
+                            <!-- link para registro de usuarios -->
+							<div class="col-xs-6">
+								<a href="#" id="register-form-link">Regístrate ahora</a>
+							</div>
+						</div>
+						<hr>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12">
+                                <!-- formulario de inicio de sesión por defecto activo -->
+								<form id="login-form" action="users/login" method="post" role="form" style="display: block;">
+									<div class="form-group">
+										<input type="text" name="usernamel" id="username" tabindex="1" class="form-control" placeholder="Nombre de usuario" required pattern="[a-zA-Z]{3,12}">
+									</div>
+									<div class="form-group">
+										<input type="password" name="passwordl" id="password" tabindex="2" class="form-control" placeholder="Contraseña" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,15}">
+									</div>
+									<div class="form-group text-center">
+										<input type="checkbox" tabindex="3" class="" name="remember" id="remember">
+										<label for="remember"> Recordarme</label>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Iniciar sesión">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-lg-12">
+												<div class="text-center">
+													<a href="" tabindex="5" class="forgot-password">¿Has olvidado tu contraseña?</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+                                <!-- Formulario de registro inicialmente oculto hasta qye se de click en el link de registro -->
+								<form id="register-form" action="" method="post" role="form" style="display: none;">
+									<div class="form-group">
+										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Usuario" value="">
+									</div>
+									<div class="form-group">
+										<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Correo electronico" value="">
+									</div>
+									<div class="form-group">
+										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Contraseña">
+									</div>
+									<div class="form-group">
+										<input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirmar contraseña">
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Crear cuenta">
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <script>        
+	        const linkl= document.querySelector('#login-form-link');
+            const linkr= document.querySelector('#register-form-link');
+            const forml= document.querySelector('#login-form');
+            const formr= document.querySelector('#register-form');
+
+            linkl.addEventListener("click", function(){
+                linkr.removeAttribute('class');
+                linkl.setAttribute('class', 'active');                
+                formr.setAttribute('style', 'display:none;');                
+                forml.setAttribute('style', 'display:block;');                
+            });
+
+
+            linkr.addEventListener("click", function(){
+                linkl.removeAttribute('class');
+                linkr.setAttribute('class', 'active');
+                forml.setAttribute('style', 'display:none;');    
+                formr.setAttribute('style', 'display:block;');
+            });
+       
+            const usuario = document.querySelector('#username');
+            usuario.addEventListener('input', function(evt) {
+              this.setCustomValidity('');
+            });
+            usuario.addEventListener('invalid', function(evt) {
+             // Required
+             if (this.validity.valueMissing) {
+               this.setCustomValidity("Por favor introduce al menos 3 letras y máximo 8");
+             }
+            }); 
+
+            const contrasenia = document.querySelector('#password');
+            contrasenia.addEventListener('input', function(evt) {
+              this.setCustomValidity('');
+            });
+            contrasenia.addEventListener('invalid', function(evt) {
+             // Required
+             if (this.validity.valueMissing) {
+               this.setCustomValidity("Por favor introduce al menos 8 caracteres: al menos una mayúscula, una minúscula, un dígito y un caracter del conjunto ($@$!%*?&");
+             }
+            }); 
+     </script>
+</body>
+</html>
