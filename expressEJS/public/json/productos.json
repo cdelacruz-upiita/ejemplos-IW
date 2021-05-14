@@ -1,0 +1,25 @@
+{"data":[{
+    "Nombre":"Mouse",
+    "Descripcion": "Mouse inalámbico",
+    "Precio": "400.00",
+    "Imagen": "img/mouse.jfif"    
+  },
+  {
+    "Nombre":"Teclado",
+    "Descripcion": "Teclado inalámbico",
+    "Precio": "450.00",
+    "Imagen": "img/teclado.jfif"    
+  },
+  {
+    "Nombre":"Micrófono",
+    "Descripcion": "Micrófono paea videoconferencia",
+    "Precio": "450.00",
+    "Imagen": "img/microfono.jpg"    
+  },
+  {
+    "Nombre":"Audifonos",
+    "Descripcion": "Audifonos inalámbico",
+    "Precio": "800.00",
+    "Imagen": "img/audifonos.jfif"    
+  }]
+}

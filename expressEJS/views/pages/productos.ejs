@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="author" content="CDLCS"/>
+        <title><%= title %></title>
+        
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">     
+        <link rel="stylesheet" href="../../css/estilo-compresion.min.css">
+        <link rel="stylesheet" href="../../css/especial.css">     
+        <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>	        
+        <script src="../../js/productsDT.js"></script>     
+</head>
+
+</head>
+<body>
+    <%- include ('../partials/header')%>
+    <main id="dataMain">
+        
+        <div id="titulo">
+            <h1>Lista de productos</h1>
+        </div>
+        <div id="tableContainer">
+        <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Imagen</th>                    
+                </tr>
+            </thead>
+        </table>
+        </div>
+    </main>
+</body>
+</html>
