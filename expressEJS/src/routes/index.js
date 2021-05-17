@@ -1,11 +1,10 @@
 const express = require('express');
-const path = require('path');
+
 const router = express.Router();
 
 // Ruta para petición GET
 router.get('/', (req,res)=>{
-   res.render('index', { title:'Página de inicio'});
-      
+   res.render('index', { title:'Proyecto en express con EJS'});      
 })
-  
+ 
 module.exports = router;

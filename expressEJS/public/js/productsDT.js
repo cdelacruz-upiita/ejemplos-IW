@@ -30,7 +30,15 @@ $(document).ready(function() {
                 }
                 return data;
                 }
-            }
+            },
+            { data: "AñadirCarrito",
+            "render": function(data, type, row, meta){
+                if(type === 'display'){
+                    data = '<a href=' + data + '> añadir al carrito</a>';
+                }
+                return data;
+                }
+            },
         ]
     } );
 } );
